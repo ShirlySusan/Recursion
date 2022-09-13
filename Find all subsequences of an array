@@ -3,6 +3,10 @@ I/P: N=3
     ARR={3,1,2}
 O/P: {{},{3},{1},{2},{3,1},{1,2},{3,2},{3,1,2}}
 
+INTUITION: 
+Subsequence: A contiguous or non-contiguous sequences which follow the original order as in the input array.
+For every element, there are two possibilities, either you pick it or you don't. So, for an array of size N, we will get 2^N subsequences. Use a temporary vector(or a list in JAVA)
+to store the subsequences obtained when the base case of any recursion call is satisfied.
 ____________________________________________________________________________________________________________________________
 
 // Use recursion
