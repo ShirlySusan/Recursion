@@ -1,0 +1,29 @@
+GIVEN AN ARRAY OF UNIQUE ELEMENTS OF SIZE 'N'. FIND ALL ITS SUBSEQUNCES (WITH NO DUPLICATES) AND PRINT THEM IN ANY ORDER.
+I/P: N=3
+    ARR={3,1,2}
+O/P: {{},{3},{1},{2},{3,1},{1,2},{3,2},{3,1,2}}
+
+____________________________________________________________________________________________________________________________
+
+// Use recursion
+class Solution {
+public:
+    void func(int ind, vector<int> & nums, vector<vector<int>> &ans, int n,vector<int> ds){
+        if(ind>=n){
+            ans.push_back(ds);
+            return;
+        }
+        ds.push_back(nums[ind]);
+        func(ind+1,nums,ans,n,ds);
+        ds.pop_back();
+        func(ind+1,nums,ans,n,ds);
+    }
+    
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> ds;
+        int n=nums.size();
+        func(0,nums,ans,n,ds);
+        return ans;
+    }
+};
